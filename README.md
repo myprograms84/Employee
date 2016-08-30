@@ -1,49 +1,75 @@
 # Employee
 
-#pragma once //include to prevent redefining
+
 #include <iostream>
 #include <string>
+#include "Employee.h"
 
 using namespace std;
 
-//declare Employee class
-class Employee
+//***************************/
+// Initialize static member variable
+// -- don't put static word here (only in .h)
+int Employee::idNumber = 0000;
+
+
+//***************************/
+// Default constructor
+Employee::Employee()
 {
-private: // declare private member variables
+	string name = " ";
+	double currentSalary = 00000;
+	double taxRate = 0.00;
+}
 
-	string name;
-	double currentSalary;
-	double taxRate;
-
-	// declare private static member variables
-	static int idNumber;
-
-
-public:
-	Employee(); //default constructor
-	~Employee(); //deconstructor
+//***************************/
+// Destructor
+Employee::~Employee()
+{
+}
 
 
-   /****************************/
-   // declare set method to save data into member variables
-	void setEmployeeData(string, double, double);
+/****************************/
+// define set method to save data into member variables
+void Employee::setEmployeeData(string n, double cs , double tr)
+{
+	
+	 n = name;
+	 cs = currentSalary;
+	 tr = taxRate;
+
+	idNumber++;
+}
 
 
-	/****************************/
-	// declare print method to display employee data 
-	void print();
+/****************************/
+// define print method to display employee data 
+void Employee::print()
+{
+	cout << name << "(" << idNumber << ")" << " $" << currentSalary << endl;
+}
 
 
-	/****************************/
-	// declare incremental method to give employees a raise
-	void payRaise(double);
+/****************************/
+// define method to give employees a raise
+void Employee::payRaise(double salaryWithRaise)
+{
+	double raise;
+	salaryWithRaise = raise + currentSalary;
+}
 
-	/****************************/
-	// declare taxesPaid method to calculate and return total taxes paid (calculate salary * tax rate)
-	double taxesPaid(double s);
+/****************************/
+// define method to calculate employees taxes paid amount
+double Employee::taxesPaid(double s)
+{
+	s = currentSalary * taxRate;
+	return s;
+}
 
-	/****************************/
-	// declare static method to access static member
-	static int idNumberCount();
-
-};
+/****************************/
+// define static method to return static member variable value
+int Employee::idNumberCount()
+{
+	
+	return idNumber;
+}
