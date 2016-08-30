@@ -7,69 +7,50 @@
 
 using namespace std;
 
-//***************************/
-// Initialize static member variable
-// -- don't put static word here (only in .h)
-int Employee::idNumber = 0000;
-
-
-//***************************/
-// Default constructor
-Employee::Employee()
+int main()
 {
-	string name = " ";
-	double currentSalary = 00000;
-	double taxRate = 0.00;
-}
+	//declare and initialize array index constant
+	const int NUM_EMPLOYEES = 3;
 
-//***************************/
-// Destructor
-Employee::~Employee()
-{
-}
+	//declare array object of type Employee 
+	Employee employeesAug[NUM_EMPLOYEES];
 
+	//initialize array with provided data
+	employeesAug[0].setEmployeeData = "Bob", 30000, 0.10;
+	employeesAug[1].setEmployeeData = "Joe", 20000, 0.10;
+	employeesAug[2].setEmployeeData = "Jack", 50000, 0.20;
 
-/****************************/
-// define set method to save data into member variables
-void Employee::setEmployeeData(string n, double cs , double tr)
-{
-	
-	 n = name;
-	 cs = currentSalary;
-	 tr = taxRate;
+	//print array data for array using a loop
+	for (int i = 0; i < NUM_EMPLOYEES; i++)
+	{
+		employeesAug[0].print();
+		employeesAug[1].print();
+		employeesAug[2].print();
+	}
 
-	idNumber++;
-}
-
-
-/****************************/
-// define print method to display employee data 
-void Employee::print()
-{
-	cout << name << "(" << idNumber << ")" << " $" << currentSalary << endl;
-}
-
-
-/****************************/
-// define method to give employees a raise
-void Employee::payRaise(double salaryWithRaise)
-{
+	//declare a variable to save raise data into
 	double raise;
-	salaryWithRaise = raise + currentSalary;
-}
+	int x;
 
-/****************************/
-// define method to calculate employees taxes paid amount
-double Employee::taxesPaid(double s)
-{
-	s = currentSalary * taxRate;
-	return s;
-}
-
-/****************************/
-// define static method to return static member variable value
-int Employee::idNumberCount()
-{
+	//print array data for array using a loop
+	for (int x = 0; x < 5; x++)
+	{
+		cout << "Enter an array location and the amount of the raise: ";
+		cin >> employeesAug[x] >> raise;
+		if (raise = 0)
+		{
+			cout << employeesAug[x].setEmployeeData.Employee::taxRate;
+		}
+	}
 	
-	return idNumber;
+	//print array data for array using a loop
+	for (int i = 0; i < NUM_EMPLOYEES; i++)
+	{
+		employeesAug[0].print();
+		employeesAug[1].print();
+		employeesAug[2].print();
+	}
+
+	system("pause");
+	return 0;
 }
